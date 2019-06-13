@@ -32,18 +32,23 @@ namespace CulminatingProblemS2HighTideLowTide
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            //how many number
             int Number;
             int.TryParse(NInput.Text, out Number);
-
+            
+            //spliting the tides
             string Tides = TidesInput.Text;
             string[] SplitTides = Tides.Split(null);
             int[] tides = Array.ConvertAll(SplitTides, int.Parse);           
             
+            //ordering them from least to greatest
             IEnumerable<int> query = tides.OrderBy(x => x);
-
+            
+            //tides for high (tides2) and low (tides)
             int[] tides2 = new int[0];
             tides = new int[0];
-
+            
+            //For loop to get the high and low tides
             for (int i = 0; i < query.ToArray().Length; i++)
             {
                 if (i < query.ToArray().Length / 2)
@@ -57,10 +62,12 @@ namespace CulminatingProblemS2HighTideLowTide
                     tides2[i - (query.ToArray().Length / 2)] = query.ToArray()[i];
                 }
             }
-
+            
+            //Reversing the low tides
             IEnumerable<int>ting = tides.Reverse();
             tides = ting.ToArray();
-
+            
+            //Outputing the correct tides
             for (int i = 0; i < tides.Length; i++)
             {
                 lblOutput.Content += tides[i].ToString() + " " + tides2[i].ToString() + " ";

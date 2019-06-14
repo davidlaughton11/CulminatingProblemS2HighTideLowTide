@@ -35,43 +35,52 @@ namespace CulminatingProblemS2HighTideLowTide
             //how many number
             int Number;
             int.TryParse(NInput.Text, out Number);
-            
+
             //spliting the tides
             string Tides = TidesInput.Text;
             string[] SplitTides = Tides.Split(null);
-            int[] tides = Array.ConvertAll(SplitTides, int.Parse);           
-            
+            int[] tides = Array.ConvertAll(SplitTides, int.Parse);
+
             //ordering them from least to greatest
             IEnumerable<int> query = tides.OrderBy(x => x);
-            
+
             //tides for high (tides2) and low (tides)
             int[] tides2 = new int[0];
             tides = new int[0];
-            
-            //For loop to get the high and low tides
-            for (int i = 0; i < query.ToArray().Length; i++)
+
+            //to check input
+            if (Number != tides.Length)
             {
-                if (i < query.ToArray().Length / 2)
-                {
-                    Array.Resize(ref tides, tides.Length + 1);
-                    tides[i] = query.ToArray()[i];
-                }
-                else
-                {
-                    Array.Resize(ref tides2, tides2.Length + 1);
-                    tides2[i - (query.ToArray().Length / 2)] = query.ToArray()[i];
-                }
+                lblOutput.Content = "Error with input";   
+                
             }
-            
-            //Reversing the low tides
-            IEnumerable<int>ting = tides.Reverse();
-            tides = ting.ToArray();
-            
-            //Outputing the correct tides
-            for (int i = 0; i < tides.Length; i++)
+            else
             {
-                lblOutput.Content += tides[i].ToString() + " " + tides2[i].ToString() + " ";
-            }
+                //For loop to get the high and low tides
+                for (int i = 0; i < query.ToArray().Length; i++)
+                {
+                    if (i < query.ToArray().Length / 2)
+                    {
+                        Array.Resize(ref tides, tides.Length + 1);
+                        tides[i] = query.ToArray()[i];
+                    }
+                    else
+                    {
+                        Array.Resize(ref tides2, tides2.Length + 1);
+                        tides2[i - (query.ToArray().Length / 2)] = query.ToArray()[i];
+                    }
+                }
+
+                //Reversing the low tides
+                IEnumerable<int> ting = tides.Reverse();
+                tides = ting.ToArray();
+
+                //Outputing the correct tides
+                for (int i = 0; i < tides.Length; i++)
+                {
+                    lblOutput.Content += tides[i].ToString() + " " + tides2[i].ToString() + " ";
+                }
+            }            
         }
     }
 }

@@ -8,9 +8,10 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <TextBlock TextWrapping="Wrap">The first line contains the integer N (1 ≤ N ≤ 100). The next line contains N distinct spaceseparated
-        positive integers, where each integer is at most 1 000 000.  The output will be the numbers in alternating order.        </TextBlock>
-        <TextBox x:Name="NInput"></TextBox>
-        <TextBox x:Name="TidesInput"></TextBox>
+        positive integers, where each integer is at most 1 000 000.  The output will be the numbers in alternating order.
+        </TextBlock>
+        <TextBox x:Name="NInput">8</TextBox>
+        <TextBox x:Name="TidesInput">10 50 40 7 3 110 90 2</TextBox>
         <Button x:Name="btnStart" Click="btnStart_Click">Click</Button>
         <Label x:Name="lblOutput"></Label>
     </StackPanel>

@@ -51,8 +51,7 @@ namespace CulminatingProblemS2HighTideLowTide
             //to check input
             if (Number != tides.Length)
             {
-                lblOutput.Content = "Error with input";   
-                
+                lblOutput.Content = "Error with input";
             }
             else
             {
@@ -78,7 +77,7 @@ namespace CulminatingProblemS2HighTideLowTide
                 ReverseLowTides = ReverseLowTides.ToArray();
 
                 //Outputing the correct tides
-                for (int i = 0; i < tides.Length; i++)
+                for (int i = 0; i < LowTides.Length; i++)
                 {
                     lblOutput.Content += LowTides[i].ToString() + " " + HighTides[i].ToString() + " ";
                 }

@@ -44,7 +44,7 @@ namespace CulminatingProblemS2HighTideLowTide
             //ordering them from least to greatest
             IEnumerable<int> query = tides.OrderBy(x => x);
 
-            //tides for high (tides2) and low (tides)
+            //tides for high and low 
             int[] HighTides = new int[0];
             int[] LowTides = new int[0];
 

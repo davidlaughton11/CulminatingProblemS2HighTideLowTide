@@ -45,8 +45,8 @@ namespace CulminatingProblemS2HighTideLowTide
             IEnumerable<int> query = tides.OrderBy(x => x);
 
             //tides for high (tides2) and low (tides)
-            int[] tides2 = new int[0];
-            tides = new int[0];
+            int[] HighTides = new int[0];
+            int[] LowTides = new int[0];
 
             //to check input
             if (Number != tides.Length)
@@ -59,26 +59,28 @@ namespace CulminatingProblemS2HighTideLowTide
                 //For loop to get the high and low tides
                 for (int i = 0; i < query.ToArray().Length; i++)
                 {
+                    //for the low half of the array
                     if (i < query.ToArray().Length / 2)
                     {
-                        Array.Resize(ref tides, tides.Length + 1);
-                        tides[i] = query.ToArray()[i];
+                        Array.Resize(ref LowTides, LowTides.Length + 1);
+                        LowTides[i] = query.ToArray()[i];
                     }
+                    //for the high tides of the array
                     else
                     {
-                        Array.Resize(ref tides2, tides2.Length + 1);
-                        tides2[i - (query.ToArray().Length / 2)] = query.ToArray()[i];
+                        Array.Resize(ref HighTides, HighTides.Length + 1);
+                        HighTides[i - (query.ToArray().Length / 2)] = query.ToArray()[i];
                     }
                 }
 
                 //Reversing the low tides
-                IEnumerable<int> ting = tides.Reverse();
-                tides = ting.ToArray();
+                IEnumerable<int> ReverseLowTides = LowTides.Reverse();
+                ReverseLowTides = ReverseLowTides.ToArray();
 
                 //Outputing the correct tides
                 for (int i = 0; i < tides.Length; i++)
                 {
-                    lblOutput.Content += tides[i].ToString() + " " + tides2[i].ToString() + " ";
+                    lblOutput.Content += LowTides[i].ToString() + " " + HighTides[i].ToString() + " ";
                 }
             }            
         }

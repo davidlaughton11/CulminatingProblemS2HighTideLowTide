@@ -74,14 +74,14 @@ namespace CulminatingProblemS2HighTideLowTide
 
                 //Reversing the low tides
                 IEnumerable<int> ReverseLowTides = LowTides.Reverse();
-                ReverseLowTides = ReverseLowTides.ToArray();
+                LowTides = ReverseLowTides.ToArray();
 
                 //Outputing the correct tides
                 for (int i = 0; i < LowTides.Length; i++)
                 {
                     lblOutput.Content += LowTides[i].ToString() + " " + HighTides[i].ToString() + " ";
                 }
-            }            
+            }
         }
     }
 }
